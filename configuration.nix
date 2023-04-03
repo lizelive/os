@@ -15,14 +15,19 @@
       wheelNeedsPassword =false;
     };
 
-  systemd.services.foo = {
+
+# really clever hostname
+  networking.hostName = "killme";
+  
+  # E0-4F-43-E6-BA-BD
+
+  systemd.services.icanhazip = {
     script = ''
-      date > /wtf
-      echo "Doing some stuff" >> /wtf
-      lsof -nP -iTCP -sTCP:LISTEN >> /wtf
-      echo "Done" >> /wtf
-      ifconfig > /wtf
-      echo "Done" >> /wtf
+    echo -en "\007"
+    curl icanhazip.com
+    echo -en "\007"
+    curl -4 icanhazip.com
+    curl -6 icanhazip.com
     '';
     wantedBy = [ "multi-user.target" ];
   };
