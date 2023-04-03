@@ -82,7 +82,7 @@ programs.git = { enable = true; lfs.enable = true; };
   boot.loader.grub.useOSProber = false;
   services.flatpak.enable = false;
 
-  networking.hostName = "l05"; # Define your hostname.
+  networking.hostName = "reese"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
