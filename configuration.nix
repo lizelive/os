@@ -21,33 +21,12 @@
   # set the hostId to the first 8 characters of the machine-id
   # networking.hostId = builtins.substring 0 8 (builtins.readFile "/etc/machine-id");
 
-  # use podman
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # replace docker with podman
-      dockerCompat = true;
-      dockerSocket.enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      enableNvidia = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      # defaultNetwork.dnsname.enable = true;
-    };
-
-    containers.storage.settings.storage = {
-      driver = "overlay";
-      graphroot = "/var/lib/containers/storage";
-      runroot = "/run/containers/storage";
-    };
-  };
-
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
   };
+
+  # services.code-server.enable = true;
 
   # i don't need nginx
   # services.nginx.enable = true;

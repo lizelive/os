@@ -35,12 +35,11 @@
       system = "x86_64-linux";
       modules = [
         ./boot.nix
-        ./cuda.nix
         ./lizelive.nix
         ./configuration.nix
-        ./programs.nix
+        ./cuda.nix
         ./blathers/configuration.nix
-        # sops-nix.nixosModules.sops
+        ./programs.nix
       ];
     };
   };

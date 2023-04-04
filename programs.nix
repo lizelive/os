@@ -1,8 +1,34 @@
 {pkgs, ...}: {
+  # use podman
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # replace docker with podman
+      dockerCompat = true;
+      dockerSocket.enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      enableNvidia = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      # defaultNetwork.dnsname.enable = true;
+    };
+
+    containers.storage.settings.storage = {
+      driver = "overlay";
+      graphroot = "/var/lib/containers/storage";
+      runroot = "/run/containers/storage";
+    };
+  };
+  
+  # good
   programs.git = {
     enable = true;
     lfs.enable = true;
   };
+
+  # programs
   environment.systemPackages = with pkgs; [
     nano # simple text editor
     busybox # pciutils, usbutils, wget. not sure if i want all of these features
@@ -18,7 +44,6 @@
     glances # system monitor
     alejandra # nix formater
     podman-compose
-    microsoft-edge # todo: figure out how to only install on ui
-    vscode
+    code-server
   ];
 }
