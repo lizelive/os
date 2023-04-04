@@ -1,10 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+    # sops-nix.url = "github:Mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # disko.url = "github:nix-community/disko";
+    # disko.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/latest";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -12,8 +12,8 @@
   outputs = {
     self,
     nixpkgs,
-    sops-nix,
-    disko,
+    # sops-nix,
+    # disko,
     devenv,
   }: {
     # replace 'joes-desktop' with your hostname here.
@@ -28,7 +28,7 @@
         ./xserver.nix
         ./gnome.nix
         ./reese/configuration.nix
-        sops-nix.nixosModules.sops
+         # sops-nix.nixosModules.sops
       ];
     };
     nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {
@@ -39,7 +39,8 @@
         ./lizelive.nix
         ./configuration.nix
         ./programs.nix
-        sops-nix.nixosModules.sops
+        ./blathers/configuration.nix
+        # sops-nix.nixosModules.sops
       ];
     };
   };
