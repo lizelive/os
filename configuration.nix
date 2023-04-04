@@ -1,74 +1,77 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  
-    security.sudo = {
-      enable = true;
-      wheelNeedsPassword =false;
-    };
 
-
-# really clever hostname
-  networking.hostName = "killme";
-  
-  # E0-4F-43-E6-BA-BD
-
-  systemd.services.icanhazip = {
-    script = ''
-    echo -en "\007"
-    curl icanhazip.com
-    echo -en "\007"
-    curl -4 icanhazip.com
-    curl -6 icanhazip.com
-    '';
-    wantedBy = [ "multi-user.target" ];
+  # setup sudo
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = false;
   };
 
+  # set the hostId to the first 8 characters of the machine-id
+  # networking.hostId = builtins.substring 0 8 (builtins.readFile "/etc/machine-id");
+
+  # use podman
   virtualisation = {
     podman = {
       enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
+
+      # replace docker with podman
       dockerCompat = true;
+      dockerSocket.enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
       enableNvidia = true;
+
       # Required for containers under podman-compose to be able to talk to each other.
       # defaultNetwork.dnsname.enable = true;
     };
+
+    containers.storage.settings.storage = {
+      driver = "overlay";
+      graphroot = "/var/lib/containers/storage";
+      runroot = "/run/containers/storage";
+    };
   };
- 
+
   services.nginx.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 80 22 ];
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  system.copySystemConfiguration = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lizelive = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
-    openssh.authorizedKeys.keys = # builtins.split "\n" (builtins.readFile (builtins.fetchurl https://github.com/lizelive.keys));
-    [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDACD+oVWACmBkd8JcRA9ZXWsD6TEsq8ZPiA1WyMnZPoww7flKiW5GCL364sBuppm7cti0ZPnT8MDhYv96w2wqfIYG9c3m8JcfQI12M6ZSUkKVv/GlwlclguSyiqwShqlHdNQyteeXCghZbJS0479ggZs8Mbr4jK9D5KKL1RYRXIAQmMpJHd03m+2cD8WhrZCwT3GIVlna01gLHlPJtg6KVRHcmhKYN/il0iixQnOfwDhoNIkbgSOP5AY0dMioKL+lEnfBR7IlQup/qBtfZKJUTosyvtJWfK2zThHQLV2i51k9+tDxJ2XcYnhewaMF2Pjua3f9ZmfCAkidsoY4UHrIN2eAWtTqIyxnyIKZWA0HTN6kvO5p6IewF+ulsUqcTM+IUH1zmpe82NOMskeaJMz2JdxfZCrnofTzWvca7PzE2BQGALeS7BW+2nRu3IDZtPiZino0NiiJ7AtrRtIoV28WAiLcvMWgtDjkcadAiN1PH5jEW7B73f6vHDKVVZfwlptjUsMY0+/B/jOQiSPbgZcvjlufonL2oUUohuAM/I184MFBlYoyF/V0CRb4mib48rZWsr4biPkXtqtO0woVPZTqPptf1Se56fmdlQeyg3KQUVRTy6Eh60kwelDAfYWbG0FXAERTFwbt+QgEdzJ1iYi8OPOMmXUuUMhSE/p6ORqJWyQ=="
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOU1vPhNxJbXF2Gaq40kbKQ7bt7darBTNCTqDPq180yo"
-    ];
-    initialHashedPassword = "";
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "22.11"; # Did you read the comment?
+
+  # auto upgrade
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
   };
 
-  system.stateVersion = "23.05"; # Did you read the comment?
-
-
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
-
+  # cleanup
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-}
 
+  # enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+}
