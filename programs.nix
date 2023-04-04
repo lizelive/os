@@ -17,5 +17,8 @@
     kubectl # manage cukernetes
     glances # system monitor
     alejandra # nix formater
+    podman-compose
+    microsoft-edge # todo: figure out how to only install on ui
+    vscode
   ];
 }

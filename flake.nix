@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
@@ -14,7 +14,7 @@
     disko,
   }: {
     # replace 'joes-desktop' with your hostname here.
-    nixosConfigurations.lizelive = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./boot.nix
@@ -25,7 +25,7 @@
         ./xserver.nix
         ./gnome.nix
         ./reese/configuration.nix
-        # sops-nix.nixosModules.sops
+        sops-nix.nixosModules.sops
       ];
     };
     nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {
