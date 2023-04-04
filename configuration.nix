@@ -44,7 +44,13 @@
     };
   };
 
-  services.nginx.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
+
+  # i don't need nginx
+  # services.nginx.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
