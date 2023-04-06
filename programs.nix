@@ -5,10 +5,10 @@
       enable = true;
 
       # replace docker with podman
-      dockerCompat = true;
-      dockerSocket.enable = true;
+      # dockerCompat = true;
+      # dockerSocket.enable = true;
 
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      # cuda is needed
       enableNvidia = true;
 
       # Required for containers under podman-compose to be able to talk to each other.
@@ -16,9 +16,15 @@
     };
 
     containers.storage.settings.storage = {
-      driver = "overlay";
+      driver = "btrfs";
       graphroot = "/var/lib/containers/storage";
       runroot = "/run/containers/storage";
+    };
+
+    docker = {
+      enable = true;
+      enableNvidia = true;
+      storageDriver = "btrfs";
     };
   };
   
