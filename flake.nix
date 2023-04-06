@@ -5,8 +5,8 @@
     # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     # disko.url = "github:nix-community/disko";
     # disko.inputs.nixpkgs.follows = "nixpkgs";
-    devenv.url = "github:cachix/devenv/latest";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
+    # devenv.url = "github:cachix/devenv/latest";
+    # devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -14,9 +14,8 @@
     nixpkgs,
     # sops-nix,
     # disko,
-    devenv,
+    # devenv,
   }: {
-    # replace 'joes-desktop' with your hostname here.
     nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
