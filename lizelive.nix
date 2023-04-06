@@ -10,7 +10,7 @@
 {
   users.users.lizelive = {
     isNormalUser = true;
-    extraGroups = ["wheel" "podman"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "podman" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       vscode
     ];
