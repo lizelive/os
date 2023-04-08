@@ -44,7 +44,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/77C1-EA4A";
+    { device = "/dev/disk/by-path/pci-0000:04:00.3-usb-0:3:1.0-scsi-0:0:0:0-part1";
       fsType = "vfat";
     };
 
