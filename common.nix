@@ -59,6 +59,13 @@
     options = "--delete-older-than 30d";
   };
 
+  environment.shellAliases = {
+    conda-shell = "nix run nixpkgs#conda -- conda-shell";
+    nix-fmt = "nix run nixpkgs#alejandra --";
+    nixos-config = "sudo gnome-text-editor /etc/nixos/configuration.nix && sudo nixos-rebuild switch";
+    dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
+  };
+  
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

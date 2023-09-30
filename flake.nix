@@ -22,7 +22,7 @@
         ./boot.nix
         ./cuda.nix
         ./lizelive.nix
-        ./configuration.nix
+        ./common.nix
         ./programs.nix
         ./xserver.nix
         ./gnome.nix
@@ -35,7 +35,7 @@
       modules = [
         ./boot.nix
         ./lizelive.nix
-        ./configuration.nix
+        ./common.nix
         ./cuda.nix
         ./blathers/configuration.nix
         ./programs.nix

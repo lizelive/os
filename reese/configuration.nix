@@ -6,14 +6,7 @@
   pkgs,
   ...
 }: {
-  programs.singularity.enable = false;
-
-  environment.shellAliases = {
-    conda-shell = "nix run nixpkgs#conda -- conda-shell";
-    nix-fmt = "nix run nixpkgs#alejandra --";
-    nixos-config = "sudo gnome-text-editor /etc/nixos/configuration.nix && sudo nixos-rebuild switch";
-    glances = "nix-shell -p glances --run 'sudo glances'";
-  };
+  # programs.singularity.enable = false;
 
   networking.hostName = "reese"; # Define your hostname.
 
