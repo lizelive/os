@@ -14,6 +14,7 @@
   
   networking.hostName = "reese"; # Define your hostname.
 
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # # Allow unfree packages
   # nixpkgs.config = {
   #   allowUnfree = true;

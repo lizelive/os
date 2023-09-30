@@ -7,7 +7,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
   networking.hostName = "blathers"; # Define your hostname.
+  
+  virtualisation.docker.storageDriver = "btrfs";
+  
   networking.firewall.allowedTCPPorts = [ 5432 ];
   services.postgresql = {
     enable = true;
