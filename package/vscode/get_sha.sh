@@ -1,0 +1,1 @@
+curl https://code.visualstudio.com/sha | jq '.products[] | select (.platform.os == "cli-alpine-x64")' > $out

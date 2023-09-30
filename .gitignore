@@ -1,3 +1,4 @@
 /out
 secrets.env
 result
+/package/conda/init

@@ -3,18 +3,11 @@ with lib; let
   # Shorter name to access final settings a
   # user of hello.nix module HAS ACTUALLY SET.
   # cfg is a typical convention.
-  cfg = config.lizelive.tools;
+  cfg = options.lizelive.allow;
 in {
   # Declare what settings a user of this "hello.nix" module CAN SET.
-  options.lizelive.tools  = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = lib.mdDoc ''
-        CLI tools I use a lot.
-      '';
-    };
-    # enable = mkEnableOption "dev tools";
+  options.lizelive.allow  = {
+    unfree = mkEnableOption "allow unfree";
   };
 
   # Define what other settings, services and resources should be active IF

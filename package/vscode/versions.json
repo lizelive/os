@@ -1,0 +1,28 @@
+{
+  "url": "https://az764295.vo.msecnd.net/stable/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/vscode_cli_alpine_x64_cli.tar.gz",
+  "name": "1.82.2",
+  "version": "abd2f3db4bdb28f9e95536dfa84d8479f1eb312d",
+  "productVersion": "1.82.2",
+  "hash": "c0a51c8805644ab8a75da0c172a28802a2092715",
+  "timestamp": 1694670342406,
+  "sha256hash": "12924be450b5b2d23db2f14c6eb617e3cbab93c8dea92c4d6df30e0ab7ce6c02",
+  "build": "stable",
+  "platform": {
+    "os": "cli-alpine-x64",
+    "prettyname": "Linux CLI (x64)"
+  }
+}
+{
+  "url": "https://az764295.vo.msecnd.net/insider/4268e464763087044d0c1b5bdd37ebbe683cadfa/vscode_cli_alpine_x64_cli.tar.gz",
+  "name": "1.83.0-insider",
+  "version": "4268e464763087044d0c1b5bdd37ebbe683cadfa",
+  "productVersion": "1.83.0-insider",
+  "hash": "ef11a3e36dd94e873da4a171a77d1040ba4db043",
+  "timestamp": 1696020337153,
+  "sha256hash": "1b07fa5f165b1b90b0679a38cc474fc48f4415dbcc52c638034d8aaeb31bb0c8",
+  "build": "insider",
+  "platform": {
+    "os": "cli-alpine-x64",
+    "prettyname": "Linux CLI (x64)"
+  }
+}

@@ -9,6 +9,10 @@
        url = "github:cachix/devenv/latest";
        inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nixos-generators = {
+    #   url = "github:nix-community/nixos-generators";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # sops-nix.url = "github:Mic92/sops-nix";
     # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     # disko.url = "github:nix-community/disko";
@@ -20,19 +24,33 @@
     nixpkgs,
     home-manager,
     ...
-  }: let basemod = ({ pkgs, ... }: {
-            boot.isContainer = true;
+  }: let pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        basemod = ({ ... }: {
             system.stateVersion = "23.05";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+            users.users.test = {
+                isNormalUser = true;
+                initialPassword = "test";
+                group = "test";
+                extraGroups = ["wheel" "podman" "docker" ];
+            };
+
+            nixpkgs.config.allowUnfree = true;
+            services.getty.autologinUser = "test";
         }); in {
-    
+
     nixosConfigurations.modular = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         basemod
+        ({...}: { networking.hostName = "modular"; })
+        # nixos-generators.nixosModules.all-formats
         ./modules/tools.nix
+        ./lizelive.nix
       ];
+      
     };
+
     nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
