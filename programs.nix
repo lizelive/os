@@ -29,9 +29,6 @@
     kubectl # manage cukernetes
     glances # system monitor
     alejandra # nix formater
-    podman-compose
     vscode # offical vscode
-    devbox # compare with devenv, more stars
-    devenv # compare with devbox, more nixy
   ];
 }
