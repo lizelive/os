@@ -21,8 +21,6 @@
 
   hardware.nvidia = {
     nvidiaPersistenced = true;
-    # need to use beta driver for 4090 support
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # unclear why this is needed
