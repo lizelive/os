@@ -16,10 +16,23 @@
   };
 
   outputs = inputs@{
+    self,
     nixpkgs,
     home-manager,
     ...
-  }: {
+  }: let basemod = ({ pkgs, ... }: {
+            boot.isContainer = true;
+            system.stateVersion = "23.05";
+            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+        }); in {
+    
+    nixosConfigurations.modular = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        basemod
+        ./modules/tools.nix
+      ];
+    };
     nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

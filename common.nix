@@ -53,7 +53,7 @@
     flake = "github:lizelive/os";
   };
 
-  system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+  # system.configurationRevision = lib.mkIf (self ? rev) self.rev;
 
   # cleanup
   nix.gc = {
