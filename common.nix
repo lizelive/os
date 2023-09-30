@@ -2,6 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  self,
   config,
   pkgs,
   lib,
@@ -51,6 +52,8 @@
     allowReboot = true;
     flake = "github:lizelive/os";
   };
+
+  system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
 
   # cleanup
   nix.gc = {
