@@ -26,6 +26,7 @@
         ./programs.nix
         ./xserver.nix
         ./gnome.nix
+        ./graphical-tools.nix
         ./reese/configuration.nix
          # sops-nix.nixosModules.sops
       ];
@@ -37,8 +38,8 @@
         ./lizelive.nix
         ./common.nix
         ./cuda.nix
-        ./blathers/configuration.nix
         ./programs.nix
+        ./blathers/configuration.nix
       ];
     };
   };
