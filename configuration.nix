@@ -21,21 +21,60 @@
   # set the hostId to the first 8 characters of the machine-id
   # networking.hostId = builtins.substring 0 8 (builtins.readFile "/etc/machine-id");
 
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
+  # use podman
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableNvidia = true;
+      extraOptions = "--cri-containerd";
+      # settings = {
+      #   features = {
+      #     containerd-snapshotter = true;
+      #   };
+      # };
+    };
+    podman = { enable = true; enableNvidia = true; };
   };
 
-  # services.code-server.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  programs.gamemode.enable = true;
 
-  # i don't need nginx
-  # services.nginx.enable = true;
+  services.squid = {
+    enable = false;
+    extraConfig = ''
+    acl co_huggingface dstdomain huggingface.co
+    cache allow co_huggingface
+    
+    acl org_pythonhosted_files dstdomain files.pythonhosted.org
+    cache allow org_pythonhosted_files
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # can't use with flakes
-  # system.copySystemConfiguration = true;
+    acl org_debian_deb dstdomain org_debian_deb
+    cache allow org_debian_deb
+
+    acl com_microsoft_packages dstdomain packages.microsoft.com
+    cache allow com_microsoft_packages
+    
+    maximum_object_size 16 GB
+    cache_dir ufs /var/cache/squid 500000 256 256
+    cache_mem 256 MB
+    maximum_object_size_in_memory 4 KB
+    cache_replacement_policy heap LFUDA
+    range_offset_limit -1
+    quick_abort_min -1 KB
+    '';
+  };
+
+networking.firewall = {
+  enable = true;
+  allowedTCPPorts = [ 6567 ];
+  allowedUDPPorts = [ 6567 ];
+};
+
+  # networking.proxy.default = "http://127.0.0.1:3128"; # "http://localhost:3128";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -49,7 +88,6 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
-    flake = "github:lizelive/os";
   };
 
   # cleanup
@@ -59,13 +97,6 @@
     options = "--delete-older-than 30d";
   };
 
-  environment.shellAliases = {
-    conda-shell = "nix run nixpkgs#conda -- conda-shell";
-    nix-fmt = "nix run nixpkgs#alejandra --";
-    nixos-config = "sudo gnome-text-editor /etc/nixos/configuration.nix && sudo nixos-rebuild switch";
-    dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive";
-  };
-  
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

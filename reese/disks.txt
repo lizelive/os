@@ -1,0 +1,11 @@
+{ disks ? [ "/dev/vdb" ], ... }:{
+  disk = 
+}
+let 
+bootdevice = "/dev/disk/by-path/pci-0000:04:00.3-usb-0:3:1.0-scsi-0:0:0:0";
+nvmes = [
+  "/dev/nvme*n1"
+  "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S6B0NL0W221373R"
+  ];
+  hdd 
+  in nvme
