@@ -1,4 +1,5 @@
 /out
 secrets.env
 result
-/package/conda/init
+/package/conda/cache
+package/cache.tar.gz

@@ -13,7 +13,7 @@ env = runCommand "conda-install" { nativeBuildInputs = [ micromamba curl ]; buil
         ''
 root_prefix=/tmp/root_prefix
 condarc=/tmp/.mambarc
-cp -r ${./init} $root_prefix
+cp -r ${./cache} $root_prefix
 chmod +w -R $root_prefix
 
 ls -la $root_prefix
@@ -27,6 +27,7 @@ channels:
 EOL
 
 export CONDA_OVERRIDE_LINUX=6
+export CONDA_OVERRIDE_CUDA=12
 micromamba info --root-prefix $out --rc-file $condarc
 
 micromamba create --offline --dry-run -n env -y -f ${envfile} --verbose --root-prefix $root_prefix --rc-file $condarc --json | tee $out
