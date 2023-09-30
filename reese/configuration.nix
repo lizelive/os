@@ -7,7 +7,11 @@
   ...
 }: {
   # programs.singularity.enable = false;
-
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+  
   networking.hostName = "reese"; # Define your hostname.
 
   # # Allow unfree packages
