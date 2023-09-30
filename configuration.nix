@@ -49,6 +49,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
+    flake = "github:lizelive/os";
   };
 
   # cleanup
