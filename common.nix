@@ -15,7 +15,7 @@
   # setup sudo
   security.sudo = {
     enable = true;
-    wheelNeedsPassword = false;
+    wheelNeedsPassword = false; # don't require password for sudo
   };
 
   # set the hostId to the first 8 characters of the machine-id
