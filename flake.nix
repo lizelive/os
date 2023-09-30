@@ -27,6 +27,7 @@
         ./xserver.nix
         ./gnome.nix
         ./graphical-tools.nix
+        ./games.nix
         ./reese/configuration.nix
          # sops-nix.nixosModules.sops
       ];
@@ -35,9 +36,9 @@
       system = "x86_64-linux";
       modules = [
         ./boot.nix
+        ./cuda.nix
         ./lizelive.nix
         ./common.nix
-        ./cuda.nix
         ./programs.nix
         ./blathers/configuration.nix
       ];
