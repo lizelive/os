@@ -1,10 +1,5 @@
 {
-  inputs = {
-    os.url = "github:lizelive/os";
-  };
+  inputs.os.url = "github:lizelive/os";
 
-  outputs = {
-    self,
-    os,
-  }: os;
+  outputs = { self, os }: os;
 }
