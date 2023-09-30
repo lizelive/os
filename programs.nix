@@ -29,5 +29,6 @@
     glances # system monitor
     alejandra # nix formater
     vscode # offical vscode
+    micromamba # nice to have
   ];
 }
