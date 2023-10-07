@@ -13,6 +13,9 @@
     lfs.enable = true;
   };
 
+  # direnv (https://direnv.net/)  load and unload environment variables depending on the current directory.
+  programs.direnv.enable = true;
+
   # programs
   environment.systemPackages = with pkgs; [
     nano # simple text editor
@@ -20,7 +23,6 @@
     curl # curl
     tree # directory tree
     kubo # ipfs
-    direnv # direnv (https://direnv.net/)  load and unload environment variables depending on the current directory.
     jq # json stuff
     cachix # nix cache
     nmap # map network
