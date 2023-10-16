@@ -52,6 +52,11 @@
     flake = "github:lizelive/os";
   };
 
+  # copySystemConfiguration but for flakes
+  environment.etc = {
+    nixos.source = ./.;
+  };
+
   # cleanup
   nix.gc = {
     automatic = true;
