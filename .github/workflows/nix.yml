@@ -3,18 +3,21 @@ name: "nix"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '32 2 * * *'
 
 jobs:
   analyze:
     name: update
     runs-on: 'ubuntu-latest'
+    # container: nixos/nix
+    # nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check
     permissions:
       contents: write
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v22
     - run: nix flake update
     - run: nix flake check
     - uses: stefanzweifel/git-auto-commit-action@v5
