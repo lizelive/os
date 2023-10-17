@@ -9,6 +9,8 @@ jobs:
   analyze:
     name: update
     runs-on: 'ubuntu-latest'
+    env:
+      NIX_CONFIG: "experimental-features = nix-command flakes"
     # container: nixos/nix
     # nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check
     permissions:
