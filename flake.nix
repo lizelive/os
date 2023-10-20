@@ -29,6 +29,7 @@
         ./graphical-tools.nix
         ./games.nix
         ./reese/configuration.nix
+        ./build.nix
          # sops-nix.nixosModules.sops
       ];
     };
@@ -41,6 +42,7 @@
         ./common.nix
         ./programs.nix
         ./blathers/configuration.nix
+        ./build.nix
       ];
     };
   };

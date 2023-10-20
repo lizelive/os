@@ -7,7 +7,7 @@
   lib,
   ...
 }: 
-let pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHjpgkmBKMrLVLxMkjL47ujU7BKMQqaLg5XlqyPlaco";
+let pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHjpgkmBKMrLVLxMkjL47ujU7BKMQqaLg5XlqyPlaco"; in
 {
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
