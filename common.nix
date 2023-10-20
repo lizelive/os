@@ -67,7 +67,7 @@
   environment.shellAliases = {
     conda-shell = "nix run nixpkgs#conda -- conda-shell";
   };
-  
+
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

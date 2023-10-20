@@ -6,7 +6,7 @@
       enableNvidia = true;
     };
   };
-  
+
   # good
   programs.git = {
     enable = true;

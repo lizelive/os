@@ -11,7 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-  
+
   networking.hostName = "reese"; # Define your hostname.
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";

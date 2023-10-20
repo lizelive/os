@@ -1,16 +1,15 @@
-{pkgs, ...}: 
-
+{pkgs, ...}:
 # let
 #   username = "lizelive";
 #   file = builtins.fetchurl "https://github.com/${username}.keys";
 #   text = builtins.readFile file;
 #   lines = builtins.split "\n" text;
 #   keys = builtins.filter (v: builtins.isString v && v != "") lines;
-# in 
+# in
 {
   users.users.lizelive = {
     isNormalUser = true;
-    extraGroups = ["wheel" "podman" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "podman" "docker"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       vscode
     ];

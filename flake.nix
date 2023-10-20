@@ -30,7 +30,7 @@
         ./games.nix
         ./reese/configuration.nix
         ./builde.nix
-         # sops-nix.nixosModules.sops
+        # sops-nix.nixosModules.sops
       ];
     };
     nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {

@@ -18,7 +18,6 @@
     driSupport32Bit = true;
   };
 
-
   hardware.nvidia = {
     nvidiaPersistenced = true;
   };

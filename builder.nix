@@ -9,7 +9,6 @@
 }: let
   pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHjpgkmBKMrLVLxMkjL47ujU7BKMQqaLg5XlqyPlaco";
 in {
-
   users.users.nixremote = {
     isNormalUser = true;
     # extraGroups = ["wheel" "podman" "docker" ]; # Enable ‘sudo’ for the user.
