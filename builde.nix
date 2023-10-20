@@ -6,9 +6,7 @@
   pkgs,
   lib,
   ...
-}: let
-  pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHjpgkmBKMrLVLxMkjL47ujU7BKMQqaLg5XlqyPlaco";
-in {
+}: {
   nix.buildMachines = [
     {
       hostName = "nixremote@builder.lize.live";
@@ -20,4 +18,8 @@ in {
     }
   ];
   nix.distributedBuilds = true;
+  programs.ssh.knownHosts.builder = {
+    extraHostNames = ["builder.lize.live"];
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILx0d3LDlX0wPCec41LxqfFhon0VTJmCRbFySpPQuz7C";
+  };
 }
