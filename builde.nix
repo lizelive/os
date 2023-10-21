@@ -14,7 +14,7 @@
       hostName = "builder.lize.live";
       system = "x86_64-linux";
       protocol = "ssh-ng";
-      maxJobs = 12;
+      maxJobs = 4;
       speedFactor = 2;
       supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
     }
