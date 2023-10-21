@@ -11,12 +11,12 @@
 in {
   users.users.nixremote = {
     isNormalUser = true;
-    # extraGroups = ["wheel" "podman" "docker" ]; # Enable ‘sudo’ for the user.
-
     openssh.authorizedKeys.keys = [
       pubkey
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIICuaBhbUFqSi7ing96YqExwkOp52pjQoigf9t+jsFnQ root@reese"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOU1vPhNxJbXF2Gaq40kbKQ7bt7darBTNCTqDPq180yo lizelive@reese"
     ];
   };
+
+  nix.settings.trusted-users = ["nixremote"];
 }

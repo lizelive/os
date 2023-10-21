@@ -7,9 +7,11 @@
   lib,
   ...
 }: {
+  # TODO provide sshKey, publicHostKey
   nix.buildMachines = [
     {
-      hostName = "nixremote@builder.lize.live";
+      sshUser = "nixremote";
+      hostName = "builder.lize.live";
       system = "x86_64-linux";
       protocol = "ssh-ng";
       maxJobs = 12;
