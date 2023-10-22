@@ -23,6 +23,7 @@
     nvidiaPersistenced = true;
     open = true;
     powerManagement.enable = true;
+    modesetting.enable = true;
   };
 
   # unclear why this is needed
