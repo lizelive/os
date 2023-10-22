@@ -15,11 +15,14 @@
   };
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     driSupport32Bit = true;
   };
 
   hardware.nvidia = {
     nvidiaPersistenced = true;
+    open = true;
+    powerManagement.enable = true;
   };
 
   # unclear why this is needed

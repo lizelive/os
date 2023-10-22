@@ -24,7 +24,7 @@
         ./lizelive.nix
         ./common.nix
         ./programs.nix
-        ./xserver.nix
+        ./wayland.nix
         ./gnome.nix
         ./graphical-tools.nix
         ./games.nix
