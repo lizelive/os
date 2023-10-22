@@ -66,6 +66,7 @@
 
   environment.shellAliases = {
     conda-shell = "nix run nixpkgs#conda -- conda-shell";
+    os-rebuild = "sudo nixos-rebuild switch --flake ~/Documents/os && sudo systemctl reboot";
   };
 
   # enable flakes
