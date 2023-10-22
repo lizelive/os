@@ -17,7 +17,6 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    nvidiaSettings = false;
   };
 
   hardware.nvidia = {
@@ -25,6 +24,7 @@
     open = true;
     powerManagement.enable = true;
     modesetting.enable = true;
+    nvidiaSettings = false;
   };
 
   # unclear why this is needed
