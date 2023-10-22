@@ -17,6 +17,7 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    nvidiaSettings = false;
   };
 
   hardware.nvidia = {
