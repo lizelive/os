@@ -3,5 +3,6 @@
   services.xserver.desktopManager.plasma5.enable = true;
   environment.systemPackages = with pkgs; [
     wacomtablet
+    # libsForQt5.xp-pen-deco-01-v2-driver
   ];
 }

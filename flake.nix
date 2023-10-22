@@ -25,7 +25,7 @@
         ./common.nix
         ./programs.nix
         ./xserver.nix
-        ./kde.nix
+        ./xfce.nix
         ./graphical-tools.nix
         ./games.nix
         ./reese/configuration.nix
