@@ -25,7 +25,7 @@
         ./common.nix
         ./programs.nix
         ./wayland.nix
-        ./gnome.nix
+        ./plasma5.nix
         ./graphical-tools.nix
         ./games.nix
         ./reese/configuration.nix
