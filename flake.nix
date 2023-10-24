@@ -27,7 +27,6 @@
         ./wayland.nix
         ./gnome.nix
         ./graphical-tools.nix
-        ./games.nix
         ./reese/configuration.nix
         ./builde.nix
         # sops-nix.nixosModules.sops
