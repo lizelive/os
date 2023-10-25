@@ -1,8 +1,9 @@
-{fetchfromgithub}: let
+{ fetchfromgithub }:
+let
   owner = "stephenhouser";
   repo = "QnapLCD-Menu";
   src = fetchfromgithub {
     inherit owner repo;
-  }; in  {
-  
-}
+  };
+in
+{ }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # use podman
   virtualisation = {
     docker = {
@@ -37,6 +37,7 @@
     alejandra # nix formater
     micromamba # nice to have
     file # file type cli tool
-nixpkgs-fmt
+    nixpkgs-fmt
+    shfmt
   ];
 }

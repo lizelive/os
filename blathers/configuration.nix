@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -12,12 +11,12 @@
 
   virtualisation.docker.storageDriver = "btrfs";
 
-  networking.firewall.allowedTCPPorts = [5432];
+  networking.firewall.allowedTCPPorts = [ 5432 ];
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
     enableTCPIP = true;
-    ensureDatabases = ["workorder-test"];
+    ensureDatabases = [ "workorder-test" ];
     authentication = pkgs.lib.mkOverride 10 ''
       local all all trust
       host all all 127.0.0.1/32 trust

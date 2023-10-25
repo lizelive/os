@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   nixpkgs.config = {
     allowUnfree = true;
@@ -29,5 +28,5 @@
 
   # unclear why this is needed
   # but without it it does not load the drivers :(
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 }

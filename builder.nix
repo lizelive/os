@@ -1,14 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
   pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHjpgkmBKMrLVLxMkjL47ujU7BKMQqaLg5XlqyPlaco";
-in {
+in
+{
   users.users.nixremote = {
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
@@ -18,5 +19,5 @@ in {
     ];
   };
 
-  nix.settings.trusted-users = ["nixremote"];
+  nix.settings.trusted-users = [ "nixremote" ];
 }

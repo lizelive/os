@@ -1,20 +1,23 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # programs
   environment.systemPackages = with pkgs; [
     firefox
     (vscode-with-extensions.override {
-      vscode = vscodium;
+      # vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         vadimcn.vscode-lldb
+        timonwong.shellcheck
         tamasfe.even-better-toml
         serayuzgur.crates
         rust-lang.rust-analyzer
+        ms-vscode-remote.remote-ssh
         ms-python.python
+        ms-azuretools.vscode-docker
         mkhl.direnv
         jnoortheen.nix-ide
+        james-yu.latex-workshop
         github.copilot-chat
         github.copilot
-        james-yu.latex-workshop
       ];
     })
     nil # nix code server . compared with rnix-lsp and nixd . this was the best

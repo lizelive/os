@@ -1,6 +1,6 @@
 {
   user = "pmf";
-  
+
   dns = {
     root = "lize.live";
   };
@@ -12,7 +12,7 @@
       publicKey = "ssh-rsa AAAAB3NzaC1yc2";
     };
     nook = {
-      hardware = {  };
+      hardware = { };
       role = { storage = true; drone = true; };
       publicKey = "ssh-rsa AAAAB3NzaC1yc22";
     };
@@ -26,7 +26,7 @@
     drone = {
       enabled = true;
     };
-    
+
     queen = {
       enabled = true;
     };
@@ -39,7 +39,7 @@
       models.stablediffusion = {
         enabled = true;
       };
-      
+
     };
   };
 }

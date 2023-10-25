@@ -9,40 +9,40 @@
     # devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    # sops-nix,
-    # disko,
-    # devenv,
-  }: {
-    nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./boot.nix
-        ./cuda.nix
-        ./lizelive.nix
-        ./common.nix
-        ./programs.nix
-        ./wayland.nix
-        ./gnome.nix
-        ./graphical-tools.nix
-        ./reese/configuration.nix
-        ./builde.nix
-        # sops-nix.nixosModules.sops
-      ];
+  outputs =
+    { self
+    , nixpkgs
+    , # sops-nix,
+      # disko,
+      # devenv,
+    }: {
+      nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./boot.nix
+          ./cuda.nix
+          ./lizelive.nix
+          ./common.nix
+          ./programs.nix
+          ./wayland.nix
+          ./gnome.nix
+          ./graphical-tools.nix
+          ./reese/configuration.nix
+          ./builde.nix
+          # sops-nix.nixosModules.sops
+        ];
+      };
+      nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./boot.nix
+          ./cuda.nix
+          ./lizelive.nix
+          ./common.nix
+          ./programs.nix
+          ./blathers/configuration.nix
+          ./builder.nix
+        ];
+      };
     };
-    nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./boot.nix
-        ./cuda.nix
-        ./lizelive.nix
-        ./common.nix
-        ./programs.nix
-        ./blathers/configuration.nix
-        ./builder.nix
-      ];
-    };
-  };
 }

@@ -1,3 +1,3 @@
 {
-    root = "lize.live";
-  }
+  root = "lize.live";
+}

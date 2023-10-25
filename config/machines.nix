@@ -5,7 +5,7 @@
     publicKey = "ssh-rsa AAAAB3NzaC1yc2";
   };
   nook = {
-    hardware = {  };
+    hardware = { };
     role = { storage = true; drone = true; };
     publicKey = "ssh-rsa AAAAB3NzaC1yc22";
   };

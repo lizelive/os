@@ -1,11 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }: {
   # imports = [
   #   "${toString pkgs.modulesPath}/profiles/all-hardware.nix"
@@ -104,7 +103,7 @@
   systemd.services."autovt@".enable = false;
 
   # Since we can't manually respond to a panic, just reboot.
-  boot.kernelParams = ["panic=1" "boot.panic_on_fail"];
+  boot.kernelParams = [ "panic=1" "boot.panic_on_fail" ];
 
   # Don't allow emergency mode, because we don't have a console.
   systemd.enableEmergencyMode = false;
@@ -152,7 +151,7 @@
       ifconfig > /d
       echo "Done" > /e
     '';
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
   };
 
   virtualisation = {
@@ -168,12 +167,12 @@
 
   services.nginx.enable = true;
 
-  networking.firewall.allowedTCPPorts = [80 22];
+  networking.firewall.allowedTCPPorts = [ 80 22 ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lizelive = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video"];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
     openssh.authorizedKeys.keys =
       # builtins.split "\n" (builtins.readFile (builtins.fetchurl https://github.com/lizelive.keys));
       [
