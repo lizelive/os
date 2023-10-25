@@ -23,7 +23,8 @@
   # programs
   environment.systemPackages = with pkgs; [
     nano # simple text editor
-    busybox # pciutils, usbutils, wget. not sure if i want all of these features
+    # busybox # pciutils, usbutils, wget. not sure if i want all of these features
+    wget # download stuff
     curl # curl
     tree # directory tree
     kubo # ipfs
@@ -35,6 +36,7 @@
     glances # system monitor
     alejandra # nix formater
     micromamba # nice to have
-    file
+    file # file type cli tool
+nixpkgs-fmt
   ];
 }
