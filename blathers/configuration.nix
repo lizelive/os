@@ -15,7 +15,21 @@
   networking.firewall.enable = false;
   
   services.prometheus.enable = true;
-  services.grafana.enable = true;
+  
+  services.grafana = {
+    enable = true;
+    settings = {
+      server = {
+        # Listening Address
+        http_addr = "127.0.0.1";
+        # and Port
+        http_port = 3000;
+        # Grafana needs to know on which domain and URL it's running
+        domain = "blathers.local";
+        root_url = "https://blathers.local/grafana/"; # Not needed if it is `https://your.domain/`
+      };
+    };
+  };
 
   services.postgresql = {
     enable = true;
