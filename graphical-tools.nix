@@ -10,6 +10,7 @@
         tamasfe.even-better-toml
         serayuzgur.crates
         rust-lang.rust-analyzer
+        redhat.vscode-yaml
         ms-vscode-remote.remote-ssh
         ms-python.python
         ms-azuretools.vscode-docker

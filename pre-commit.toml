@@ -1,0 +1,45 @@
+[nixpkgs-fmt]
+patterns = [ "*.nix" ]
+cmd = ["nixpkgs-fmt", "--check", "--"]
+
+[shellcheck]
+mime_types = ["application/x-sh", "text/x-shellscript"]
+
+[shfmt]
+mime_types = ["application/x-sh", "text/x-shellscript"]
+
+[black]
+target = "file"
+
+[cargo-fmt]
+description = "Rust code formatter"
+dependencies = ["cargo"]
+
+[cargo-check]
+description = "Rust code checker"
+target = "crate"
+
+[cargo-test]
+description = "Rust code tester"
+target = "crate"
+
+[cargo-clippy]
+
+[trailing-whitespace]
+
+[check-yaml]
+mime_types = ["application/x-yaml", "text/x-yaml"]
+
+[end-of-file-fixer]
+
+[check-added-large-files]
+
+[detect-private-key]
+
+[pretty-format-json]
+
+[check-executables-have-shebangs]
+
+[forbid-submodules]
+
+[mixed-line-ending]

@@ -70,4 +70,11 @@
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+    "zotero-6.0.27"
+  ];
 }
+
+

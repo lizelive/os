@@ -2,7 +2,7 @@
 
 # nr.sh - A shell script to run a program from nix without installing it.
 
-cmd="nix run"
+cmd="nix run --extra-experimental-features 'nix-command flakes'"
 
 is_flag() {
         case "$1" in
@@ -25,4 +25,5 @@ program=$1
 shift
 cmd="$cmd nixpkgs#$program -- $*"
 
+echo "$cmd"
 eval "$cmd"
