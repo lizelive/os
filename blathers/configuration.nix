@@ -14,6 +14,9 @@
   networking.firewall.allowedTCPPorts = [ 5432 ];
   networking.firewall.enable = false;
   
+  services.prometheus.enable = true;
+  services.grafana.enable = true;
+
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
