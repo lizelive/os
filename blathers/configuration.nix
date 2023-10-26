@@ -12,6 +12,8 @@
   virtualisation.docker.storageDriver = "btrfs";
 
   networking.firewall.allowedTCPPorts = [ 5432 ];
+  networking.firewall.enable = false;
+  
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
