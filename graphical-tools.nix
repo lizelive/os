@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   # programs
   environment.systemPackages = with pkgs; [
-    firefox
+    chromium # browser
     (vscode-with-extensions.override {
       # vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
