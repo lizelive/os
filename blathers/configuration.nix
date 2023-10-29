@@ -13,9 +13,9 @@
 
   networking.firewall.allowedTCPPorts = [ 5432 ];
   networking.firewall.enable = false;
-  
+
   services.prometheus.enable = true;
-  
+
   services.grafana = {
     enable = true;
     settings = {
