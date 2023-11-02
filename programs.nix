@@ -37,7 +37,8 @@
     alejandra # nix formater
     micromamba # nice to have
     file # file type cli tool
-    nixpkgs-fmt
-    shfmt
+    nixpkgs-fmt # format nix
+    shfmt # format ssh
+    nix-tree # see tree of nix stuff
   ];
 }
