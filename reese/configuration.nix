@@ -29,4 +29,17 @@
   # };
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  services.ddclient = {
+    enable = true;
+    ssl = true;
+    passwordFile = "/root/ddclient.key";
+    protocol = "googledomains";
+    domains = [ "reese.lize.live" ];
+    username = "V4ByJukB6xjFlCgK";
+    use = "if, usev6=ifv6, ifv6=eno1, usev4=disabled";
+    extraConfig = ''
+      ipv6=yes
+    '';
+  };
 }
