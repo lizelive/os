@@ -20,6 +20,7 @@
         james-yu.latex-workshop
         github.copilot-chat
         github.copilot
+        ms-python.vscode-pylance
       ];
     })
     nil # nix code server . compared with rnix-lsp and nixd . this was the best
