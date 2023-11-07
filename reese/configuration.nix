@@ -30,15 +30,15 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  services.ddclient = {
-    enable = true;
-    ssl = true;
-    passwordFile = "/root/ddclient.key";
-    protocol = "googledomains";
-    domains = [ "reese.lize.live" ];
-    username = "V4ByJukB6xjFlCgK";
-    use = "if, usev6=ifv6, ifv6=eno1, usev4=disabled";
-  };
+  # services.ddclient = {
+  #   enable = true;
+  #   ssl = true;
+  #   passwordFile = "/root/ddclient.key";
+  #   protocol = "googledomains";
+  #   domains = [ "reese.lize.live" ];
+  #   username = "V4ByJukB6xjFlCgK";
+  #   use = "if, usev6=ifv6, ifv6=eno1, usev4=disabled";
+  # };
 
   security.tpm2.enable = true;
   security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so

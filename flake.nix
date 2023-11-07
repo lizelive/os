@@ -2,11 +2,12 @@
   description = "Description for the project";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.url = "sops-nix";
+    nixpkgs.url = "nixpkgs";
+    nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs,  sops-nix , ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       perSystem = { config, pkgs, self', inputs', ... }: {
