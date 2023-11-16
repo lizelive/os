@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   # use podman
   virtualisation = {
     docker = {
@@ -47,4 +47,5 @@
     enable = true;
     # packageNames = [ "wxGTK32" "ffmpeg" "libav_all" "opencv" "opencv3" "opencv2" "blender" ];
   };
+  nix.settings.extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
 }
