@@ -41,4 +41,10 @@
     shfmt # format ssh
     nix-tree # see tree of nix stuff
   ];
+
+
+  programs.ccache = {
+    enable = true;
+    # packageNames = [ "wxGTK32" "ffmpeg" "libav_all" "opencv" "opencv3" "opencv2" "blender" ];
+  };
 }
