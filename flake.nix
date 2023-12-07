@@ -3,8 +3,8 @@
 
   inputs = {
     sops-nix.url = "sops-nix";
-    nixpkgs.url = "nixpkgs";
-    nixpkgs.follows = "sops-nix/nixpkgs-stable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
 
   outputs = inputs@{ flake-parts, nixpkgs, ... }:
