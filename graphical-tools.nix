@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   # programs
   environment.systemPackages = with pkgs; [
+    fluidsynth # midi
     chromium # browser
     (vscode-with-extensions.override {
       # vscode = vscodium;
