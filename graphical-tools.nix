@@ -12,16 +12,17 @@
         serayuzgur.crates
         rust-lang.rust-analyzer
         redhat.vscode-yaml
-        ms-vscode-remote.remote-containers # will be included in 23.11
         ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-containers
+        ms-python.vscode-pylance
         ms-python.python
+        ms-dotnettools.csharp
         ms-azuretools.vscode-docker
         mkhl.direnv
         jnoortheen.nix-ide
         james-yu.latex-workshop
-        github.copilot-chat # will be included in 23.11
+        github.copilot-chat
         github.copilot
-        ms-python.vscode-pylance
       ];
     })
     # vscode
