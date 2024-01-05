@@ -2,7 +2,7 @@
   description = "Description for the project";
 
   inputs = {
-    sops-nix.url = "sops-nix";
+    # sops-nix.url = "sops-nix";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };

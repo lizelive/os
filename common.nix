@@ -65,15 +65,14 @@
 
   environment.shellAliases = {
     conda-shell = "nix run nixpkgs#conda -- conda-shell";
-    os-rebuild = "sudo nixos-rebuild switch --flake ~/Documents/os && sudo systemctl reboot";
+    os-rebuild = "sudo nixos-rebuild boot --flake ~/Documents/os && sudo systemctl reboot";
   };
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
-    "zotero-6.0.26"
+    "electron-25.9.0"
   ];
 
   services.avahi = {
