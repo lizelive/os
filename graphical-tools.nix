@@ -35,8 +35,9 @@
 
     logseq # notes
     zotero # more notes!
-    # blender # 3d modeling and video editing
+    blender # 3d modeling and video editing
     obs-studio # streaming
     bitwarden # password
+    krita
   ];
 }
