@@ -14,7 +14,7 @@
 
   networking.hostName = "reese"; # Define your hostname.
 
-boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.firewall.enable = false;
   # # Allow unfree packages
@@ -43,7 +43,15 @@ boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
 
-  # services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  # services.xserver.videoDrivers = [  "displaylink" "modesetting" ];
+
+  services.xserver.videoDrivers = [ "displaylink" "nvidia" ];
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+
 
   # disable nvidia
   # boot.extraModprobeConfig = ''
