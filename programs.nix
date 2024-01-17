@@ -1,11 +1,11 @@
 { pkgs, config, ... }: {
   # use podman
-  virtualisation = {
-    docker = {
-      enable = true;
-      enableNvidia = true;
-    };
-  };
+  # virtualisation = {
+  #   docker = {
+  #     enable = true;
+  #     enableNvidia = true;
+  #   };
+  # };
 
   # good
   programs.git = {

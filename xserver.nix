@@ -1,10 +1,14 @@
 { ... }: {
   services.xserver.enable = true;
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  hardware.opengl.enable = true;
 
+  # hardware.opengl.enable = true;
+
+
+  # Enable sound with pipewire.
+  # Remove sound.enable or set it to false if you had it set previously, as sound.enable is only meant for ALSA-based configurations
+  hardware.pulseaudio.enable = false;
+  sound.enable = true;
+  # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

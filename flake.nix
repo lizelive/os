@@ -24,16 +24,16 @@
           system = "x86_64-linux";
           modules = [
             ./boot.nix
-            ./cuda.nix
+            # ./cuda.nix
             ./lizelive.nix
             ./common.nix
             ./programs.nix
-            ./wayland.nix
+            ./xserver.nix
             ./gnome.nix
             ./graphical-tools.nix
             ./reese/configuration.nix
             ./builde.nix
-            ./games.nix
+            # ./games.nix
             # sops-nix.nixosModules.sops
           ];
         };
