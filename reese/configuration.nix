@@ -49,12 +49,12 @@
     options nouveau modeset=0
   '';
 
-  hardware.nvidia = {
-    # nvidiaPersistenced = lib.mkForce false;
-    # open = lib.mkForce true;
-    # powerManagement.enable = lib.mkForce false;
-    modesetting.enable = lib.mkForce false;
-    # nvidiaSettings = lib.mkForce false;
-  };
+  # hardware.nvidia = {
+  #   nvidiaPersistenced = lib.mkForce false;
+  #   open = lib.mkForce true;
+  #   powerManagement.enable = lib.mkForce false;
+  #   modesetting.enable = lib.mkForce false;
+  #   nvidiaSettings = lib.mkForce false;
+  # };
 
 }
