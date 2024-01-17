@@ -43,7 +43,7 @@ boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
 
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  # services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
   # disable nvidia
   # boot.extraModprobeConfig = ''

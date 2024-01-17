@@ -31,7 +31,7 @@
             ./pipewire.nix
             ./gnome.nix
             ./programs.nix
-            # ./graphical-tools.nix
+            ./graphical-tools.nix
             ./reese/configuration.nix
             # ./builde.nix
             # ./games.nix
