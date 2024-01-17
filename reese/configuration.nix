@@ -43,14 +43,22 @@
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
 
-  # services.xserver.videoDrivers = [  "displaylink" "modesetting" ];
+  # services.xserver.videoDrivers = [  "displaylink" "nvidia" ];
 
-  services.xserver.videoDrivers = [ "displaylink" "nvidia" ];
-  environment.variables = {
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
-  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+  hardware.nvidia = {
+    # nvidiaPersistenced = true;
+    open = true;
+    # powerManagement.enable = true;
+    modesetting.enable = true;
+    nvidiaSettings = false;
+  };
+
 
 
   # disable nvidia
