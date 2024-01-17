@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 { config
 , pkgs
+, lib
 , ...
 }: {
   # programs.singularity.enable = false;
@@ -42,12 +43,18 @@
 
   services.xserver.videoDrivers = [ "displaylink" ];
 
+
+  boot.extraModprobeConfig = ''
+    blacklist nouveau
+    options nouveau modeset=0
+  '';
+
   hardware.nvidia = {
-    nvidiaPersistenced = false;
-    open = true;
-    powerManagement.enable = false;
-    modesetting.enable = false;
-    nvidiaSettings = false;
+    # nvidiaPersistenced = lib.mkForce false;
+    # open = lib.mkForce true;
+    # powerManagement.enable = lib.mkForce false;
+    modesetting.enable = lib.mkForce false;
+    # nvidiaSettings = lib.mkForce false;
   };
-  
+
 }
