@@ -20,10 +20,10 @@
   };
 
   hardware.nvidia = {
-    nvidiaPersistenced = true;
-    open = true;
+    # nvidiaPersistenced = true;
+    # open = true;
     # powerManagement.enable = true;
-    modesetting.enable = true;
+    # modesetting.enable = true;
     nvidiaSettings = false;
   };
 
