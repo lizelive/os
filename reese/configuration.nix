@@ -41,7 +41,9 @@
   #   use = "if, usev6=ifv6, ifv6=eno1, usev4=disabled";
   # };
 
-  services.xserver.videoDrivers = [ "displaylink" ];
+  nixpkgs.config.allowUnfree = lib.mkForce true;
+
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
 
   boot.extraModprobeConfig = ''
