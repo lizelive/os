@@ -41,4 +41,13 @@
   # };
 
   services.xserver.videoDrivers = [ "displaylink" ];
+
+  hardware.nvidia = {
+    nvidiaPersistenced = false;
+    open = true;
+    powerManagement.enable = false;
+    modesetting.enable = false;
+    nvidiaSettings = false;
+  };
+  
 }
