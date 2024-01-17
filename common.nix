@@ -42,7 +42,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
   # auto upgrade
   system.autoUpgrade = {
@@ -64,7 +64,6 @@
   };
 
   environment.shellAliases = {
-    conda-shell = "nix run nixpkgs#conda -- conda-shell";
     os-rebuild = "sudo nixos-rebuild boot --flake ~/Documents/os && sudo systemctl reboot";
   };
 
@@ -74,6 +73,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+
+  networking.networkmanager.enable = true;
 
   services.avahi = {
     nssmdns = true;

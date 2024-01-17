@@ -27,12 +27,13 @@
             # ./cuda.nix
             ./lizelive.nix
             ./common.nix
-            ./programs.nix
             ./xserver.nix
+            ./pipewire.nix
             ./gnome.nix
+            ./programs.nix
             # ./graphical-tools.nix
             ./reese/configuration.nix
-            ./builde.nix
+            # ./builde.nix
             # ./games.nix
             # sops-nix.nixosModules.sops
           ];
