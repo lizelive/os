@@ -30,7 +30,7 @@
             ./programs.nix
             ./xserver.nix
             ./gnome.nix
-            ./graphical-tools.nix
+            # ./graphical-tools.nix
             ./reese/configuration.nix
             ./builde.nix
             # ./games.nix
