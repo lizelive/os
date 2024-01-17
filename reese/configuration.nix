@@ -45,7 +45,7 @@
 
   # services.xserver.videoDrivers = [  "displaylink" "nvidia" ];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
   hardware.opengl = {
     enable = true;
     driSupport = true;
