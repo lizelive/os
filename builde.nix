@@ -10,7 +10,7 @@
   nix.buildMachines = [
     {
       sshUser = "nixremote";
-      hostName = "builder.lize.live";
+      hostName = "blathers";
       system = "x86_64-linux";
       protocol = "ssh-ng";
       maxJobs = 4;
@@ -20,7 +20,7 @@
   ];
   nix.distributedBuilds = true;
   programs.ssh.knownHosts.builder = {
-    extraHostNames = [ "builder.lize.live" ];
+    extraHostNames = [ "blathers" ];
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILx0d3LDlX0wPCec41LxqfFhon0VTJmCRbFySpPQuz7C";
   };
 }

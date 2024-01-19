@@ -45,9 +45,9 @@
   ];
 
 
-  programs.ccache = {
-    enable = true;
-    # packageNames = [ "wxGTK32" "ffmpeg" "libav_all" "opencv" "opencv3" "opencv2" "blender" ];
-  };
-  nix.settings.extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
+  # programs.ccache = {
+  #   enable = true;
+  #   packageNames = [ "wxGTK32" "ffmpeg" "libav_all" "opencv" "opencv3" "opencv2" "blender" ];
+  # };
+  # nix.settings.extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
 }
