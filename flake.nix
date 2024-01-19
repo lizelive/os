@@ -24,7 +24,7 @@
           system = "x86_64-linux";
           modules = [
             ./boot.nix
-            # ./cuda.nix
+            ./cuda.nix
             ./lizelive.nix
             ./common.nix
             ./xserver.nix
@@ -33,7 +33,7 @@
             ./programs.nix
             ./graphical-tools.nix
             ./reese/configuration.nix
-            # ./builde.nix
+            ./builde.nix
             # ./games.nix
             # sops-nix.nixosModules.sops
           ];

@@ -1,11 +1,11 @@
 { pkgs, config, ... }: {
   # use podman
-  # virtualisation = {
-  #   docker = {
-  #     enable = true;
-  #     enableNvidia = true;
-  #   };
-  # };
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableNvidia = true;
+    };
+  };
 
   # good
   programs.git = {
@@ -40,6 +40,8 @@
     nixpkgs-fmt # format nix
     shfmt # format ssh
     nix-tree # see tree of nix stuff
+    nix-init # init nix project from a repo
+    
   ];
 
 

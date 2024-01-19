@@ -45,19 +45,20 @@
 
   # services.xserver.videoDrivers = [  "displaylink" "nvidia" ];
 
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" "modesetting" ];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-  hardware.nvidia = {
-    # nvidiaPersistenced = true;
-    open = true;
-    # powerManagement.enable = true;
-    modesetting.enable = true;
-    nvidiaSettings = false;
-  };
+  # try to get displaylink working
+  # services.xserver.videoDrivers = [ "nvidia" "displaylink" "modesetting" ];
+  # hardware.opengl = {
+  #   enable = true;
+  #   driSupport = true;
+  #   driSupport32Bit = true;
+  # };
+  # hardware.nvidia = {
+  #   # nvidiaPersistenced = true;
+  #   open = true;
+  #   # powerManagement.enable = true;
+  #   modesetting.enable = true;
+  #   nvidiaSettings = false;
+  # };
 
 
 
