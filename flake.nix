@@ -30,6 +30,7 @@
             ./xserver.nix
             ./pipewire.nix
             ./gnome.nix
+            ./wayland.nix
             ./programs.nix
             ./graphical-tools.nix
             ./reese/configuration.nix
