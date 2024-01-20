@@ -4,8 +4,8 @@
 }: {
   nixpkgs.config = {
     allowUnfree = true;
-    cudaSupport = true;
-    enableOptimizations = true;
+    # cudaSupport = true;
+    # enableOptimizations = true;
     # 3080 is 8.6
     # 4090 is 8.9; sm_89 virt target compute_89
     # # gpuTargets = [ "8.9" ]; # used for non-nvidia gpus
@@ -13,7 +13,7 @@
     # use the latest version because i hate myself
     # cudaVersion = "12.0";
   };
-  
+
   hardware.opengl = {
     enable = true;
     driSupport = true;

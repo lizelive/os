@@ -34,7 +34,7 @@
             ./graphical-tools.nix
             ./reese/configuration.nix
             ./builde.nix
-            # ./games.nix
+            ./games.nix
             # sops-nix.nixosModules.sops
           ];
         };
