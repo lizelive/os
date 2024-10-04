@@ -76,6 +76,12 @@
 
   networking.networkmanager.enable = true;
 
+  # for vscode remote
+  programs.nix-ld = {
+      enable = true;
+      package = pkgs.nix-ld-rs;
+  };
+
   services.avahi = {
     nssmdns4 = true;
     enable = true;
