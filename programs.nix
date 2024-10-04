@@ -35,7 +35,7 @@
     kubectl # manage cukernetes
     glances # system monitor
     alejandra # nix formater
-    micromamba # nice to have
+    # micromamba # nice to have
     file # file type cli tool
     nixpkgs-fmt # format nix
     shfmt # format ssh
