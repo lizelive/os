@@ -1,9 +1,9 @@
 { pkgs, config, ... }: {
   # use podman
   virtualisation = {
-    docker = {
+    containers.enable = true;
+    podman = {
       enable = true;
-      enableNvidia = true;
     };
   };
 
