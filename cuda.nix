@@ -28,6 +28,8 @@
     nvidiaSettings = false;
   };
 
+  hardware.nvidia-container-toolkit.enable = true;
+  
   # unclear why this is needed
   # but without it it does not load the drivers :(
   services.xserver.videoDrivers = [ "nvidia" ];
