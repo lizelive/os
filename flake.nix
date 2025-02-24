@@ -3,7 +3,7 @@
 
   inputs = {
     # sops-nix.url = "sops-nix";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
 

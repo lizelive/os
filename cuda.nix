@@ -14,11 +14,7 @@
     # cudaVersion = "12.0";
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  hardware.graphics.enable = true;
 
   hardware.nvidia = {
     nvidiaPersistenced = true;
