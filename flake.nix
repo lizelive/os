@@ -3,7 +3,7 @@
 
   inputs = {
     # sops-nix.url = "sops-nix";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
 
@@ -34,8 +34,6 @@
             ./programs.nix
             ./graphical-tools.nix
             ./reese/configuration.nix
-            ./builde.nix
-            ./games.nix
             # sops-nix.nixosModules.sops
           ];
         };
@@ -48,7 +46,6 @@
             ./common.nix
             ./programs.nix
             ./blathers/configuration.nix
-            ./builder.nix
           ];
         };
       };

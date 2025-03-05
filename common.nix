@@ -23,6 +23,7 @@
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
+    settings.X11Forwarding = true;
   };
 
   # services.code-server.enable = true;
@@ -52,9 +53,9 @@
   };
 
   # copySystemConfiguration but for flakes
-  environment.etc = {
-    nixos.source = ./.;
-  };
+  # environment.etc = {
+  #   nixos.source = ./.;
+  # };
 
   # cleanup
   nix.gc = {
@@ -70,9 +71,6 @@
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-      "electron-27.3.11"
-  ];
 
   networking.networkmanager.enable = true;
 
@@ -82,17 +80,17 @@
       package = pkgs.nix-ld-rs;
   };
 
-  services.avahi = {
-    nssmdns4 = true;
-    enable = true;
-    ipv4 = true;
-    ipv6 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-    };
-  };
+  # services.avahi = {
+  #   nssmdns4 = true;
+  #   enable = true;
+  #   ipv4 = true;
+  #   ipv6 = true;
+  #   publish = {
+  #     enable = true;
+  #     addresses = true;
+  #     workstation = true;
+  #   };
+  # };
 }
 
 
