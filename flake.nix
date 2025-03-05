@@ -3,6 +3,7 @@
 
   inputs = {
     # sops-nix.url = "sops-nix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
@@ -28,7 +29,6 @@
             ./lizelive.nix
             ./common.nix
             ./xserver.nix
-            ./pipewire.nix
             ./gnome.nix
             ./wayland.nix
             ./programs.nix
