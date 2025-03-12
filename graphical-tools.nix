@@ -33,7 +33,7 @@
 
     texlive.combined.scheme-full # latex
 
-    logseq # notes
+    # logseq # notes
     zotero # more notes!
     blender # 3d modeling and video editing
     obs-studio # streaming
