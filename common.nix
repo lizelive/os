@@ -73,7 +73,7 @@
 
 
   networking.networkmanager.enable = true;
-
+  networking.tempAddresses = "disabled";
   # for vscode remote
   programs.nix-ld.enable = true;
 
