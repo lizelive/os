@@ -52,7 +52,7 @@ if [ -z "$publicIp" ]; then
 fi
 
 az network dns record-set $recordType add-record \
---subscription $subscriptionId \
+--subscription $subscription \
 --resource-group $resourceGroup \
 --zone-name $zoneName \
 --record-set-name $recordSetName \
