@@ -67,7 +67,7 @@ in {
       description = "Visual Studio Code Tunnel";
       path = [ pkgs.vscode pkgs.bashInteractive pkgs.wget pkgs.git pkgs.podman ];
       # --cli-data-dir ${cfg.cli-data-dir}
-      script = "${pkgs.vscode}/lib/vscode/bin/code-tunnel --verbose  tunnel service internal-run";
+      script = "${pkgs.vscode}/lib/vscode/bin/code-tunnel --cli-data-dir $HOME/.vscode/cli tunnel service internal-run";
       serviceConfig = {
           Type = "simple";
           Restart = "always";
