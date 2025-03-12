@@ -73,24 +73,21 @@
 
 
   networking.networkmanager.enable = true;
-  networking.tempAddresses = "disabled";
+  # networking.tempAddresses = "disabled";
   # for vscode remote
   programs.nix-ld.enable = true;
 
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "electron-27.3.11"
-  # ];
-  # services.avahi = {
-  #   nssmdns4 = true;
-  #   enable = true;
-  #   ipv4 = true;
-  #   ipv6 = true;
-  #   publish = {
-  #     enable = true;
-  #     addresses = true;
-  #     workstation = true;
-  #   };
-  # };
+
+
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
+    };
 }
-
-
