@@ -46,6 +46,10 @@
             ./common.nix
             ./programs.nix
             ./blathers/configuration.nix
+            ./nixos-modules/code-tunnel.nix
+            ({ ... }: {
+              services.code-tunnel.enable = true;
+            })
           ];
         };
       };

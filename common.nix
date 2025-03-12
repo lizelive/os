@@ -80,6 +80,9 @@
       package = pkgs.nix-ld-rs;
   };
 
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-27.3.11"
+  # ];
   # services.avahi = {
   #   nssmdns4 = true;
   #   enable = true;
