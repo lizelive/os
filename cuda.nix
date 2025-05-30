@@ -1,7 +1,9 @@
-{ pkgs
-, config
-, ...
-}: {
+{
+  pkgs,
+  config,
+  ...
+}:
+{
   nixpkgs.config = {
     allowUnfree = true;
     # cudaSupport = true;
@@ -25,10 +27,11 @@
   };
 
   hardware.nvidia-container-toolkit.enable = true;
-  
+
   # unclear why this is needed
   # but without it it does not load the drivers :(
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.etc."modprobe.d/nvgpuctrperm.conf".text = "options nvidia NVreg_RestrictProfilingToAdminUsers=0";
+  environment.etc."modprobe.d/nvgpuctrperm.conf".text =
+    "options nvidia NVreg_RestrictProfilingToAdminUsers=0";
 }

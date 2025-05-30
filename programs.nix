@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   # use podman
   virtualisation = {
     containers.enable = true;
@@ -41,9 +42,8 @@
     shfmt # format ssh
     nix-tree # see tree of nix stuff
     nix-init # init nix project from a repo
-    
-  ];
 
+  ];
 
   # programs.ccache = {
   #   enable = true;

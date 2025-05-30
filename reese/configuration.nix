@@ -1,11 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, lib
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   # programs.singularity.enable = false;
   imports = [
     # Include the results of the hardware scan.
@@ -60,8 +62,6 @@
   #   nvidiaSettings = false;
   # };
 
-
-
   # disable nvidia
   # boot.extraModprobeConfig = ''
   #   blacklist nouveau
@@ -78,7 +78,6 @@
   #   ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
   # '';
   # boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
-
 
   # hardware.nvidia = {
   #   nvidiaPersistenced = lib.mkForce false;

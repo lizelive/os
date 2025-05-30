@@ -1,11 +1,18 @@
-{ lib, pkgs, config, ... }:
-with lib;                      
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib;
 let
-  # Shorter name to access final settings a 
+  # Shorter name to access final settings a
   # user of hello.nix module HAS ACTUALLY SET.
   # cfg is a typical convention.
   cfg = config.services.code-tunnel;
-    my-vscode = with pkgs; (vscode-with-extensions.override {
+  my-vscode =
+    with pkgs;
+    (vscode-with-extensions.override {
       # vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         vadimcn.vscode-lldb
@@ -27,29 +34,30 @@ let
         github.copilot
       ];
     });
-    runtimeInputs = with pkgs; [
-      bashInteractive
+  runtimeInputs = with pkgs; [
+    bashInteractive
 
-      my-vscode
-      nano # simple text editor
+    my-vscode
+    nano # simple text editor
 
-      wget # download stuff
-      curl # curl
+    wget # download stuff
+    curl # curl
 
-      jq # json stuff
-      file # file type cli tool
-      tree # directory tree
-      glances # system monitor
+    jq # json stuff
+    file # file type cli tool
+    tree # directory tree
+    glances # system monitor
 
-      nixfmt-rfc-style # format nix
-      shfmt # format ssh
-      nil # Nix Language server nixd is more powerful but requires configuration
-      nix-tree # see tree of nix stuff
-      nix-init # init nix project from a repo
+    nixfmt-rfc-style # format nix
+    shfmt # format ssh
+    nil # Nix Language server nixd is more powerful but requires configuration
+    nix-tree # see tree of nix stuff
+    nix-init # init nix project from a repo
 
-      podman # use docker stuff
-    ];
-in {
+    podman # use docker stuff
+  ];
+in
+{
   options.services.code-tunnel = {
     enable = mkEnableOption "Visual Studio Code Tunnel";
     # cli-data-dir = mkOption {
@@ -57,7 +65,7 @@ in {
     #   default = "$HOME/.vscode/cli";
     # };
   };
- 
+
   # by setting "services.code-tunnel.enable = true;".
   config = mkIf cfg.enable {
     systemd.user.services.code-tunnel = {
@@ -65,13 +73,19 @@ in {
       after = [ "network.target" ];
       wantedBy = [ "default.target" ];
       description = "Visual Studio Code Tunnel";
-      path = [ pkgs.vscode pkgs.bashInteractive pkgs.wget pkgs.git pkgs.podman ];
+      path = [
+        pkgs.vscode
+        pkgs.bashInteractive
+        pkgs.wget
+        pkgs.git
+        pkgs.podman
+      ];
       # --cli-data-dir ${cfg.cli-data-dir}
       script = "${pkgs.vscode}/lib/vscode/bin/code-tunnel --cli-data-dir $HOME/.vscode/cli tunnel service internal-run";
       serviceConfig = {
-          Type = "simple";
-          Restart = "always";
-          RestartSec = 10;
+        Type = "simple";
+        Restart = "always";
+        RestartSec = 10;
       };
     };
   };

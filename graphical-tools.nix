@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # programs
   environment.systemPackages = with pkgs; [
     fluidsynth # midi
