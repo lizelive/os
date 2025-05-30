@@ -1,0 +1,4 @@
+# treefmt.toml
+[formatter.nixfmt-rfc-style]
+command = "nixfmt"
+includes = ["*.nix"]

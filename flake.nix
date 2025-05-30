@@ -1,5 +1,5 @@
 {
-  description = "Description for the project";
+  description = "lizelive os";
 
   inputs = {
     # sops-nix.url = "sops-nix";
@@ -8,18 +8,28 @@
     # nixpkgs.follows = "sops-nix/nixpkgs-stable";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, ... }:
+  outputs =
+    inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
-      perSystem = { config, pkgs, self', inputs', ... }: {
-        # Per-system attributes can be defined here. The self' and inputs'
-        # module parameters provide easy access to attributes of the same
-        # system.
+      perSystem =
+        {
+          config,
+          pkgs,
+          self',
+          inputs',
+          ...
+        }:
+        {
+          # Per-system attributes can be defined here. The self' and inputs'
+          # module parameters provide easy access to attributes of the same
+          # system.
 
-        # packages.figlet = inputs'.nixpkgs.legacyPackages.figlet;
+          # packages.figlet = inputs'.nixpkgs.legacyPackages.figlet;
 
-        packages.nr = pkgs.callPackage ./packages/utils/nr/default.nix { };
-      };
+          packages.nr = pkgs.callPackage ./packages/utils/nr/default.nix { };
+          formatter = pkgs.nixfmt-tree;
+        };
       flake = {
         nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
