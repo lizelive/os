@@ -1,11 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, lib
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
   # Select internationalisation properties.
@@ -69,19 +71,19 @@
   };
 
   # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.networkmanager.enable = true;
   # networking.tempAddresses = "disabled";
   # for vscode remote
   programs.nix-ld.enable = true;
 
-
-
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     publish = {
       enable = true;
       addresses = true;
@@ -90,4 +92,5 @@
       userServices = true;
       workstation = true;
     };
+  };
 }
