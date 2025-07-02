@@ -93,4 +93,6 @@
       workstation = true;
     };
   };
+
+  nix.settings.download-buffer-size = 4294967296; # 4GiB
 }
