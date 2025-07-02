@@ -6,7 +6,7 @@
 {
   nixpkgs.config = {
     allowUnfree = true;
-    # cudaSupport = true;
+    cudaSupport = true;
     # enableOptimizations = true;
     # 3080 is 8.6
     # 4090 is 8.9; sm_89 virt target compute_89
@@ -28,8 +28,7 @@
 
   hardware.nvidia-container-toolkit.enable = true;
 
-  # unclear why this is needed
-  # but without it it does not load the drivers :(
+  # without it it does not load the drivers :(
   services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.etc."modprobe.d/nvgpuctrperm.conf".text =
