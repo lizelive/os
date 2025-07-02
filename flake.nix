@@ -34,6 +34,7 @@
         nixosConfigurations.reese = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./cachix.nix
             ./boot.nix
             ./cuda.nix
             ./lizelive.nix
@@ -50,6 +51,7 @@
         nixosConfigurations.blathers = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            ./cachix.nix
             ./boot.nix
             ./cuda.nix
             ./lizelive.nix
