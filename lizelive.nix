@@ -18,7 +18,7 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOU1vPhNxJbXF2Gaq40kbKQ7bt7darBTNCTqDPq180yo"
-      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBP9hCD7L1DYXsiqJi9KeUynxHssILCWO4kzHMPoKvXGKnmfCuNEBrQFO/yxdIdQhEe4JHF7aWZgrZ3o339iz8YE="
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINfPYw1BybV5Yl+uWqNEeCUYLAoDXQCo1JxC2rQt6SaG"
     ];
 
     # openssh.authorizedKeys.keys = keys;
